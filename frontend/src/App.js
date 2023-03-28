@@ -11,40 +11,20 @@ import Cart from './Components/Cart/Cart';
 import LandingPage from './Components/LandingPage/LandingPage';
 import Login from './Components/Auth/Login';
 import Signup from "./Components/Auth/Signup";
-import PrivateRoute from './Components/Auth/PrivateRoute';
 import Profile from './Components/Auth/Profile';
 
 function App() {
-
-  const navigate = useNavigate();
-  
-
-  useEffect(() => {
-
-    const userInfo = localStorage.getItem("userInfo");
-
-
-    if(userInfo){
-      navigate("/home")
-    }
-
-  },[navigate]);
-
-
-
 
   return (
     <div className="App">
       <Navbar />
       <header className="App-header">
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='singleproducts' element={<PrivateRoute Component={SingleProducts} />} />
+        <Route path='/' element={<Home />} />
+        <Route path='singleproducts' element={<SingleProducts />} />
         <Route path="cart" element={<Cart />}  />
-        <Route path="profile" element={<Profile />} />
         <Route path="login" element={ <Login />} />
-     <Route path="signup" element={ <Signup />} />
+        <Route path="signup" element={ <Signup />} />
       </Routes>
       </header>
       <Footer/>
